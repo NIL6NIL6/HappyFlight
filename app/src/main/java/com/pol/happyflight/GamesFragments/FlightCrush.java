@@ -5,6 +5,7 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.util.Pair;
@@ -18,8 +19,12 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.SetOptions;
 import com.pol.happyflight.GameRoom;
 import com.pol.happyflight.R;
 
@@ -63,13 +68,66 @@ public class FlightCrush  extends Fragment {
                         }
                     }
                 });
-        if (gameHost)initializeGame(gameStat);
         View v = inflater.inflate(R.layout.flight_crush, container, false);
         defineButtonClicks(v);
+        final DocumentReference docRef = gameStat.document("Status");
+        docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot snapshot,
+                                @Nullable FirebaseFirestoreException e) {
+                if (e != null) {
+                    Log.w(TAG, "Listen failed.", e);
+                    return;
+                }
+
+                if (snapshot != null && snapshot.exists()) {
+                    Log.d(TAG, "Current data: " + snapshot.getData());
+                    if ((Boolean) ((Map)snapshot.get("Deceased")).get(address)){
+                        if (!gameHost) getActivity().onBackPressed();
+                    }
+                    Log.w(TAG, "Alive");
+                    if (gameHost){
+                        Map current = (Map) snapshot.get("Current");
+                        Map destination = (Map) snapshot.get("Destination");
+                        Log.w(TAG, "Mapped");
+                        if (current.keySet().size() == destination.keySet().size()){
+                            //HashMap<String,Float> intersections = theAlgorithm(current,destination);
+                            //Primer borrem els destination aixi evitem entrar mes cops en aquesta part(per si es crida al listener cada cop que fem un canvi)
+                            Map copy = destination;
+                            HashMap<String,Object> dummy = new HashMap<>();
+                            dummy.put("Destination",new HashMap<>());
+                            Log.w(TAG, "Pre-update");
+                            docRef.set(dummy, SetOptions.merge());
+                            Log.w(TAG, "Post-update");
+                            HashMap<String,Boolean> deceased =  (HashMap<String,Boolean>) snapshot.get("Deceased");
+                            /*for (String s : intersections.keySet()){
+                                deceased.put(s,true);
+                            }*/
+                            dummy = new HashMap<>();
+                            dummy.put("Deceased",deceased);
+                            docRef.set(dummy,SetOptions.merge());
+                            HashMap<String,Integer> newCurrent = new HashMap<>();
+                            //Fer per aqui les animacions de rip
+                            /*for (Object o : current.keySet()){
+                                if (intersections.containsKey(o.toString()))continue;
+                                newCurrent.put(o.toString(),(Integer)current.get(o));
+                            }
+                            dummy = new HashMap<>();
+                            dummy.put("Current",newCurrent);
+                            dummy.put("Ready", false);*/
+                            docRef.set(dummy,SetOptions.merge());
+                        }
+                    }
+                } else {
+                    Log.d(TAG, "Current data: null");
+                }
+            }
+        });
         return v;
     }
 
     private void initializeGame(final CollectionReference gameStat) {
+        gameHost = true;
         gameStat.document("Users")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {

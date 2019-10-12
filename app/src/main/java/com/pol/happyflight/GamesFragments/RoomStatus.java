@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -87,8 +88,14 @@ public class RoomStatus extends Fragment {
 
                     GameRoom.numJug = Integer.parseInt(snapshot.get("Num jug").toString());
                     updateCounters();
+                    Log.d(TAG,GameRoom.numJug + ">="+GameRoom.minJug);
+
                     if(GameRoom.numJug>=GameRoom.minJug){
+                        Log.d(TAG,"rtu");
                         loadGame();
+
+                    }else{
+                        Log.d(TAG,"false");
                     }
 
                 } else {
@@ -98,7 +105,7 @@ public class RoomStatus extends Fragment {
         });
     }
     private void loadGame(){
-
+        Log.d(TAG, GameRoom.id);
         switch(GameRoom.id){
             case "Flight_crash":
                 getFragmentManager().beginTransaction().replace(R.id.fragmentLayout, new FlightCrush()).commit();
