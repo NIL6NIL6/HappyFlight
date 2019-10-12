@@ -19,7 +19,7 @@ public class Passengers  extends Fragment {
     boolean goRight = false, goLeft = false, goRotate = false;
     boolean[][] Board = new boolean[7][40];
     int speed = 500, x = 1, y = 1;
-    boolean collision = false;
+    boolean collision = false, end;
     String TAG = "PASSENGERS";
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -57,7 +57,7 @@ public class Passengers  extends Fragment {
 
         //Match
 
-        boolean end = false;
+        end = false;
 
         while(!end) {
             boolean piece[][] = pieceGenerator();
