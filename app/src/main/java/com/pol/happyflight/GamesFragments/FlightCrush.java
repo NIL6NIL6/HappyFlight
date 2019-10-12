@@ -28,11 +28,13 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 public class FlightCrush  extends Fragment {
     FirebaseFirestore db;
     String TAG = "FLIGHTCRASH";
     boolean gameHost;
+    List<Object> users;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -58,12 +60,104 @@ public class FlightCrush  extends Fragment {
                     }
                 });
         if (gameHost)initializeGame(gameStat);
-        return inflater.inflate(R.layout.flight_crush, container, false);
+        View v = inflater.inflate(R.layout.flight_crush, container, false);
+        defineButtonClicks(v);
+        return v;
     }
 
     private void initializeGame(CollectionReference gameStat) {
-        Map<String, Object> data1 = new HashMap<>();
+        Map<String, Object> data = new HashMap<>();
+        gameStat.document("Users")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()) {
+                            DocumentSnapshot document = task.getResult();
+                            users = Arrays.asList(document.get("Users"));
+                        } else {
+                            Log.w(TAG, "Error getting documents.", task.getException());
+                        }
+                    }
+                });
+        //Hardcoded quantity of buttons
+        int nBut = 10;
+        HashMap<String,ArrayList<Boolean>> visited = new HashMap<>();
+        HashMap<String,Boolean> Deceased = new HashMap<>();
+        for (Object user : users){
+            ArrayList<Boolean> aux = new ArrayList<>();
+            for (int i = 0; i<nBut; ++i){
+                aux.add(false);
+            }
+            visited.put(user.toString(),aux);
+            Deceased.put(user.toString(),false);
+        }
+        data.put("Destination",new HashMap<String,Integer>());
+        data.put("UserVisited",visited);
+        data.put("Deceased",Deceased);
+        HashMap<String,Integer> current = new HashMap<>();
+        ArrayList<Boolean> used = new ArrayList<>();
+        for (int i = 0; i<nBut; ++i){
+            used.add(false);
+        }
+        Random random = new Random();
+        int num;
+        for (Object user : users){
+            while(used.get((num = random.nextInt(nBut)))){}
+            used.set(num,true);
+            current.put(user.toString(),num);
+        }
+        data.put("Current",current);
     }
 
-    
+    private void defineButtonClicks(View v) {
+        for (int i = 0; i < 10; i++) {
+            String buttonID = "destination".concat(Integer.toString(i+1));
+            int resID = getResources().getIdentifier(buttonID, "id", "com.pol.happyflight");
+            Button button = (Button)v.findViewById(resID);
+            final int idNum = i;
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onButtonClick(view, idNum);
+                }
+            });
+        }
+    }
+
+    private void onButtonClick(View view, int i) {
+        if (isPositionAvailable(i))
+            goToPosition(i);
+        else
+            incorrectPosition(view);
+    }
+
+    private boolean isPositionAvailable(int i) {
+        ArrayList<Boolean> positionsAvailability = getPositionsAvailability();
+        return !(positionsAvailability.get(i));
+    }
+
+    private void incorrectPosition(View view) {
+
+    }
+
+    private void goToPosition(int pos) {
+        //FIREBASE CODE HERE
+    }
+
+    private int getCurrentPosition() {
+        int pos = 0;
+
+        //FIREBASE CODE HERE
+
+        return pos;
+    }
+
+    private ArrayList<Boolean> getPositionsAvailability() {
+        ArrayList<Boolean> positionsAvailability = new ArrayList<Boolean>();
+
+        //FIREBASE CODE HERE
+
+        return positionsAvailability;
+    }
 }
