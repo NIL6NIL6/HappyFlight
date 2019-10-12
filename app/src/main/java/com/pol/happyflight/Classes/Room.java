@@ -5,12 +5,14 @@ public class Room {
     boolean enCurs;
     int maxJug;
     int minJug;
+    int numJug;
 
-    public Room(String id, boolean enCurs, int maxJug, int minJug) {
+    public Room(String id, boolean enCurs, int maxJug, int minJug,int numJug) {
         this.id = id;
         this.enCurs = enCurs;
         this.maxJug = maxJug;
         this.minJug = minJug;
+        this.numJug = numJug;
     }
 
     public String getId() {
@@ -43,5 +45,13 @@ public class Room {
 
     public void setMinJug(int minJug) {
         this.minJug = minJug;
+    }
+
+    public int getNumJug() {
+        return numJug;
+    }
+
+    public void setNumJug(int numJug) {
+        this.numJug = numJug;
     }
 }
