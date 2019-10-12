@@ -102,6 +102,7 @@ public class FlightCrush  extends Fragment {
                                 while(used.get((num = random.nextInt(nBut)))){}
                                 used.set(num,true);
                                 current.put(user.toString(),num);
+                                visited.get(user.toString()).set(num,true);
                             }
                             data.put("UserVisited",visited);
                             data.put("Current",current);
