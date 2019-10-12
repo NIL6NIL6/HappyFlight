@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -87,6 +88,7 @@ public class RoomStatus extends Fragment {
 
                     GameRoom.numJug = Integer.parseInt(snapshot.get("Num jug").toString());
                     updateCounters();
+                    Log.d(TAG,GameRoom.numJug + ">="+GameRoom.minJug);
                     if(GameRoom.numJug>=GameRoom.minJug){
                         loadGame();
                     }

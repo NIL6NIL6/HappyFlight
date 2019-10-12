@@ -12,6 +12,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -19,6 +20,9 @@ import com.pol.happyflight.GamesFragments.FlightCrush;
 import com.pol.happyflight.GamesFragments.Passengers;
 import com.pol.happyflight.GamesFragments.RoomStatus;
 import com.pol.happyflight.GamesFragments.Trivia;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static java.lang.Thread.sleep;
 
@@ -48,6 +52,7 @@ public class GameRoom extends AppCompatActivity {
         GameRoom.id = extras.getString("id");
         GameRoom.mac = extras.getString("mac");
         db = FirebaseFirestore.getInstance();
+
     }
 
     private void checkForRooms(){
@@ -58,24 +63,50 @@ public class GameRoom extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
+                            boolean roomFound = false;
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 maxJug = Integer.parseInt(document.get("Max jug").toString());
-                                minJug = Integer.parseInt(document.get("Max jug").toString());
+                                minJug = Integer.parseInt(document.get("Min jug").toString());
                                 numJug = Integer.parseInt(document.get("Num jug").toString());
 
                                 if(numJug<maxJug){
+                                    roomFound=true;
                                     loadStatusRoom();
                                     GameRoom.roomId = document.getId();
                                     Log.d(TAG, "Welcome to room " + document.getId());
+
                                     break;
                                 }
 
+
                             }
+                            if(!roomFound){createRoom();}
                         } else {
                             Log.w(TAG, "Error getting documents.", task.getException());
                         }
                     }
                 });
+    }
+    private void createRoom(){
+
+        Map<String, Object> room = new HashMap<>();
+        room.put("En curs", false);
+        room.put("Max jug", 4);
+        room.put("Min jug", 2);
+        room.put("Num jug", 0);
+
+        db.collection(GameRoom.id)
+                .add(room)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Map<String, Object> gamestat = new HashMap<>();
+                        gamestat.put("UserID", null);
+                        documentReference.collection("GameStat").document("Users").set(gamestat);
+                        checkForRooms();
+                    }
+                });
+
     }
     private void loadStatusRoom(){
         Log.w(TAG, "enter");

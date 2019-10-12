@@ -73,8 +73,7 @@ public class FlightCrush  extends Fragment {
 
                 if (snapshot != null && snapshot.exists()) {
                     Log.d(TAG, "Current data: " + snapshot.getData());
-                    txtX.setText(""+snapshot.get("x"));
-                    txtY.setText(""+snapshot.get("y"));
+
 
                 } else {
                     Log.d(TAG, "Current data: null");
