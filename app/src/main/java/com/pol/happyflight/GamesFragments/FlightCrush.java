@@ -20,13 +20,11 @@ import com.pol.happyflight.R;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 public class FlightCrush  extends Fragment {
-    String id = "Flight_crash";
+    String col = "Flight_crash";
     FirebaseFirestore db;
     String TAG = "FLIGHT";
-    int random = new Random().nextInt(10000000);
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -38,7 +36,7 @@ public class FlightCrush  extends Fragment {
     }
     private String searchForRoom(){
         Log.d(TAG, "LEGO");
-            db.collection(id)
+            db.collection(col)
                     .whereEqualTo("En curs", false)
 
                     .get()
@@ -53,17 +51,30 @@ public class FlightCrush  extends Fragment {
                                     int minJug = Integer.parseInt(document.get("Min jug").toString());
                                     int numJug = Integer.parseInt(document.get("Num jug").toString());
                                     if(numJug == maxJug) continue;
+                                    db.collection(col).document(id).update("Num jug", numJug+1)
+                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void aVoid) {
+                                            Log.d(TAG, "DocumentSnapshot successfully updated!");
+                                        }
+                                    })
+                                            .addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+                                                    Log.w(TAG, "Error updating document", e);
+                                                }
+                                            });
                                     Room room = new Room(id,enCurs ,maxJug ,minJug ,numJug+1);
                                     joinRoom(room);
-                                    break;
+                                    return;
                                 }
                                 Map<String, Object> roomFC = new HashMap<>();
-                                roomFC.put("En curs",true);
+                                roomFC.put("En curs",false);
                                 roomFC.put("Max jug",4);
                                 roomFC.put("Min jug",2);
                                 roomFC.put("Num jug",1);
 
-                                db.collection(id).document(getString(random))
+                                db.collection(col).document()
                                         .set(roomFC)
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
@@ -77,7 +88,6 @@ public class FlightCrush  extends Fragment {
                                                 Log.w(TAG, "Error writing document", e);
                                             }
                                         });
-
                             } else {
                                 Log.d(TAG, "Error getting documents: ", task.getException());
                             }
