@@ -1,12 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="passengers" />
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="1965dp"
+        android:layout_height="1056dp"
+        android:rotation="90"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.554"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/plane_seats"
+        tools:layout_editor_absoluteY="-154dp" />
+
+    <ImageButton
+        android:id="@+id/downButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginBottom="27dp"
+        android:backgroundTint="#DCE229"
+        android:rotation="-90"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/rightButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/leftButton"
+        app:layout_constraintTop_toBottomOf="@+id/rotateButton"
+        app:srcCompat="?attr/actionModeCloseDrawable" />
+
+    <ImageButton
+        android:id="@+id/rotateButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="489dp"
+        android:layout_marginBottom="15dp"
+        android:backgroundTint="#DCE229"
+        android:foregroundTint="#F2E7E3E3"
+        android:tint="#00C51515"
+        app:layout_constraintBottom_toTopOf="@+id/downButton"
+        app:layout_constraintStart_toStartOf="@+id/downButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_rotate" />
+
+    <ImageButton
+        android:id="@+id/rightButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="40dp"
+        android:backgroundTint="#DCE229"
+        android:rotation="180"
+        app:layout_constraintBottom_toBottomOf="@+id/downButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/downButton"
+        app:layout_constraintTop_toTopOf="@+id/downButton"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="?attr/actionModeCloseDrawable" />
+
+    <ImageButton
+        android:id="@+id/leftButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="10dp"
+        android:backgroundTint="#DCE229"
+        app:layout_constraintBottom_toBottomOf="@+id/downButton"
+        app:layout_constraintEnd_toStartOf="@+id/downButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/downButton"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="?attr/actionModeCloseDrawable" />
+
 </android.support.constraint.ConstraintLayout>

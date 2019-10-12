@@ -15,12 +15,11 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/Classes/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/Classes/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/GamesFragments/FlightCrush.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/GamesFragments/FlightCrush.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/GamesFragments/Passengers.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/GamesFragments/Passengers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/GamesFragments/Trivia.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/GamesFragments/Trivia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,7 +30,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="FPMNW19124000598" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="2b61de3e0504" />
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
@@ -41,98 +40,40 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/GameRoom.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/Classes/Room.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="29" lean-forward="true" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/GamesFragments/Passengers.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="74" column="72" selection-start-line="74" selection-start-column="72" selection-end-line="74" selection-end-column="72" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1554#4883#0" expanded="true" />
-                <element signature="e#2613#2968#0" expanded="true" />
-                <element signature="e#2967#2968#0" expanded="true" />
-                <element signature="e#3032#3379#0" expanded="true" />
-                <element signature="e#3378#3379#0" expanded="true" />
-                <element signature="e#3970#4305#0" expanded="true" />
-                <element signature="e#4304#4305#0" expanded="true" />
-                <element signature="e#4365#4691#0" expanded="true" />
-                <element signature="e#4690#4691#0" expanded="true" />
-                <element signature="e#4882#4883#0" expanded="true" />
-                <element signature="e#2602#2603#0" expanded="true" />
-                <element signature="e#2659#2660#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/GamesFragments/Trivia.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="74" column="28" selection-start-line="74" selection-start-column="28" selection-end-line="75" selection-end-column="72" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2551#2906#0" expanded="true" />
-                <element signature="e#2905#2906#0" expanded="true" />
-                <element signature="e#2970#3317#0" expanded="true" />
-                <element signature="e#3316#3317#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/GamesFragments/FlightCrush.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="74" column="76" selection-start-line="74" selection-start-column="76" selection-end-line="74" selection-end-column="76" />
+            <state relative-caret-position="-246">
+              <caret line="129" column="28" lean-forward="true" selection-start-line="129" selection-start-column="28" selection-end-line="129" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1453#4964#0" expanded="true" />
-                <element signature="e#2594#2929#0" expanded="true" />
-                <element signature="e#2928#2929#0" expanded="true" />
-                <element signature="e#2997#3364#0" expanded="true" />
-                <element signature="e#3363#3364#0" expanded="true" />
-                <element signature="e#3037#3392#0" expanded="true" />
-                <element signature="e#3391#3392#0" expanded="true" />
-                <element signature="e#4382#4728#0" expanded="true" />
-                <element signature="e#4727#4728#0" expanded="true" />
-                <element signature="e#4963#4964#0" expanded="true" />
-                <element signature="e#4065#4066#0" expanded="true" />
-                <element signature="e#4122#4123#0" expanded="true" />
+                <element signature="e#1957#2538#0" expanded="true" />
+                <element signature="e#2537#2538#0" expanded="true" />
+                <element signature="e#2882#3426#0" expanded="true" />
+                <element signature="e#3425#3426#0" expanded="true" />
+                <element signature="e#4958#5141#0" expanded="true" />
+                <element signature="e#5140#5141#0" expanded="true" />
+                <element signature="e#5550#5559#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/Classes/Constants.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/flight_crush.xml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="34" lean-forward="true" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
-              <folding>
-                <element signature="e#164#165#0" expanded="true" />
-                <element signature="e#186#187#0" expanded="true" />
-                <element signature="e#214#215#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="153">
+              <caret line="12" column="47" lean-forward="true" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -140,8 +81,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/RoomsList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="33" column="58" lean-forward="true" selection-start-line="33" selection-start-column="58" selection-end-line="33" selection-end-column="58" />
+            <state relative-caret-position="161">
+              <caret line="11" column="24" lean-forward="true" selection-start-line="11" selection-start-column="24" selection-end-line="12" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/firebaseTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="43" column="55" lean-forward="true" selection-start-line="43" selection-start-column="55" selection-end-line="43" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/local.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -155,6 +114,14 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Target</find>
+      <find>R</find>
+      <find>setContentView</find>
+      <find>setContent</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="UPDATE_TYPE" value="MERGE" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
@@ -166,19 +133,21 @@
         <option value="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/Classes/Room.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/GamesFragments/Trivia.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/GamesFragments/FlightCrush.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/GamesFragments/Passengers.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/Classes/Constants.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/flight_crush.xml" />
+        <option value="$PROJECT_DIR$/local.properties" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/RoomsList.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/GamesFragments/FlightCrush.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="95" />
-    <option name="y" value="-10" />
-    <option name="width" value="1750" />
-    <option name="height" value="980" />
+    <option name="x" value="951" />
+    <option name="width" value="978" />
+    <option name="height" value="1039" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -203,24 +172,12 @@
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="happyflight" type="cbb59c9e:AndroidPsiDirectoryNode" />
             </path>
-            <path>
-              <item name="HappyFlight" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="Classes" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HappyFlight" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="GamesFragments" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane" />
     </panes>
   </component>
@@ -343,7 +300,21 @@
       <option name="project" value="LOCAL" />
       <updated>1570859565317</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Flight Crash button layout">
+      <created>1570879251985</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1570879251985</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Flight Crash button layout">
+      <created>1570887186286</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1570887186286</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -351,7 +322,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.22818792" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.22818792" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
@@ -359,7 +330,6 @@
       <window_info id="Designer" order="6" />
       <window_info id="Resources Explorer" order="7" />
       <window_info id="Capture Tool" order="8" />
-      <window_info anchor="bottom" id="Messages" weight="0.3286119" />
       <window_info anchor="bottom" id="Run" order="0" weight="0.3286119" />
       <window_info anchor="bottom" id="Logcat" order="1" weight="0.3286119" />
       <window_info anchor="bottom" id="TODO" order="2" />
@@ -367,8 +337,10 @@
       <window_info anchor="bottom" id="Terminal" order="4" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Build" order="7" visible="true" weight="0.2733711" />
+      <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.2733711" />
       <window_info anchor="bottom" id="Android Profiler" order="8" />
+      <window_info anchor="bottom" id="Messages" order="9" weight="0.3286119" />
+      <window_info anchor="bottom" id="Find" order="10" weight="0.13597734" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Gradle" order="2" />
@@ -381,7 +353,8 @@
     <MESSAGE value="App icon change :)" />
     <MESSAGE value="Several shit" />
     <MESSAGE value="Room Creation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Room Creation" />
+    <MESSAGE value="Flight Crash button layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="Flight Crash button layout" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
@@ -396,9 +369,7 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/vueling_icon_background.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build/generated/res/google-services/debug/values/values.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/generated/res/google-services/debug/values/values.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/button_border.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -452,6 +423,75 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/24e2f7de4b30179ec4c614872c3a533e/jars/classes.jar!/com/google/android/gms/tasks/Task.class" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/GameRoom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/Classes/Room.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/GamesFragments/Passengers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="74" column="72" selection-start-line="74" selection-start-column="72" selection-end-line="74" selection-end-column="72" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/GamesFragments/Trivia.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="74" column="28" selection-start-line="74" selection-start-column="28" selection-end-line="75" selection-end-column="72" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/Classes/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+          <folding>
+            <element signature="e#167#168#0" expanded="true" />
+            <element signature="e#196#197#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/passengers.xml">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -459,35 +499,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/flight_crush.xml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="android-designer2" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/map.png">
+      <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/24e2f7de4b30179ec4c614872c3a533e/jars/classes.jar!/com/google/android/gms/tasks/Task.class">
+    <entry file="file://$PROJECT_DIR$/local.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+        <state relative-caret-position="119">
+          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/GameRoom.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/firebaseTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/RoomsList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="33" column="58" lean-forward="true" selection-start-line="33" selection-start-column="58" selection-end-line="33" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/Classes/Room.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="29" lean-forward="true" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+        <state relative-caret-position="280">
+          <caret line="43" column="55" lean-forward="true" selection-start-line="43" selection-start-column="55" selection-end-line="43" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -498,72 +523,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/RoomsList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="11" column="24" lean-forward="true" selection-start-line="11" selection-start-column="24" selection-end-line="12" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/flight_crush.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/GamesFragments/FlightCrush.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="74" column="76" selection-start-line="74" selection-start-column="76" selection-end-line="74" selection-end-column="76" />
+        <state relative-caret-position="-246">
+          <caret line="129" column="28" lean-forward="true" selection-start-line="129" selection-start-column="28" selection-end-line="129" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1453#4964#0" expanded="true" />
-            <element signature="e#2594#2929#0" expanded="true" />
-            <element signature="e#2928#2929#0" expanded="true" />
-            <element signature="e#2997#3364#0" expanded="true" />
-            <element signature="e#3363#3364#0" expanded="true" />
-            <element signature="e#3037#3392#0" expanded="true" />
-            <element signature="e#3391#3392#0" expanded="true" />
-            <element signature="e#4382#4728#0" expanded="true" />
-            <element signature="e#4727#4728#0" expanded="true" />
-            <element signature="e#4963#4964#0" expanded="true" />
-            <element signature="e#4065#4066#0" expanded="true" />
-            <element signature="e#4122#4123#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/GamesFragments/Trivia.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="74" column="28" selection-start-line="74" selection-start-column="28" selection-end-line="75" selection-end-column="72" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2551#2906#0" expanded="true" />
-            <element signature="e#2905#2906#0" expanded="true" />
-            <element signature="e#2970#3317#0" expanded="true" />
-            <element signature="e#3316#3317#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/GamesFragments/Passengers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="74" column="72" selection-start-line="74" selection-start-column="72" selection-end-line="74" selection-end-column="72" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1554#4883#0" expanded="true" />
-            <element signature="e#2613#2968#0" expanded="true" />
-            <element signature="e#2967#2968#0" expanded="true" />
-            <element signature="e#3032#3379#0" expanded="true" />
-            <element signature="e#3378#3379#0" expanded="true" />
-            <element signature="e#3970#4305#0" expanded="true" />
-            <element signature="e#4304#4305#0" expanded="true" />
-            <element signature="e#4365#4691#0" expanded="true" />
-            <element signature="e#4690#4691#0" expanded="true" />
-            <element signature="e#4882#4883#0" expanded="true" />
-            <element signature="e#2602#2603#0" expanded="true" />
-            <element signature="e#2659#2660#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pol/happyflight/Classes/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="34" lean-forward="true" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
-          <folding>
-            <element signature="e#164#165#0" expanded="true" />
-            <element signature="e#186#187#0" expanded="true" />
-            <element signature="e#214#215#0" expanded="true" />
+            <element signature="e#1957#2538#0" expanded="true" />
+            <element signature="e#2537#2538#0" expanded="true" />
+            <element signature="e#2882#3426#0" expanded="true" />
+            <element signature="e#3425#3426#0" expanded="true" />
+            <element signature="e#4958#5141#0" expanded="true" />
+            <element signature="e#5140#5141#0" expanded="true" />
+            <element signature="e#5550#5559#0" expanded="true" />
           </folding>
         </state>
       </provider>
