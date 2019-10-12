@@ -170,6 +170,7 @@ public class Passengers  extends Fragment {
 
     public boolean[][] pieceGenerator(){
         collision = false;
+        if(y == 1)end = true;
         x = 1; y = 1;
         boolean res[][] =  {{false,false,false},{false,false,false},{false,false,false}};
         double i = random()*7;
