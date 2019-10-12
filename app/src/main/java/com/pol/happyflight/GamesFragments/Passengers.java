@@ -7,8 +7,11 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
+import com.pol.happyflight.Classes.ImageAdapter;
 import com.pol.happyflight.R;
 
 import static java.lang.Math.random;
@@ -21,9 +24,16 @@ public class Passengers  extends Fragment {
     int speed = 500, x = 1, y = 1;
     boolean collision = false, end;
     String TAG = "PASSENGERS";
+    GridView gV;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+         gV = (GridView).findViewById(R.id.gridview);
+         gV.setNumColumns(7);
+
+        ImageAdapter iA = new ImageAdapter(this);
+        gV.setAdapter(iA);
 
         View view = inflater.inflate(R.layout.passengers, container, false);
 
@@ -63,6 +73,7 @@ public class Passengers  extends Fragment {
             boolean piece[][] = pieceGenerator();
 
             if(collision) {
+                for(int i = 0; i < Board[0].length; ++i) Board[3][i] = false;
                 break;
             }
             else pieceEnter(piece);
@@ -155,7 +166,17 @@ public class Passengers  extends Fragment {
                 Board[i][j] = pi[i][j];
             }
         }
+        imageshow(pi);
         return true;
+    }
+
+    private void imageshow(boolean[][] pi) {
+        for(int i = 0; i < pi.length; ++i){
+            for(int j = 0; j < pi[i].length; ++j){
+                ImageView iV = new ImageView();
+                iV.setImageResource();
+            }
+        }
     }
 
     public boolean nextMoveAvailable(boolean[][] pi){
