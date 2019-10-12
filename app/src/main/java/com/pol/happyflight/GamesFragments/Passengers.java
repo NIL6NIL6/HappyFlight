@@ -19,6 +19,7 @@ import com.pol.happyflight.Classes.Constants;
 import com.pol.happyflight.Classes.Room;
 import com.pol.happyflight.R;
 
+import java.lang.reflect.Array;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,6 +27,8 @@ public class Passengers  extends Fragment {
     String col = "Passengers";
     FirebaseFirestore db;
     String TAG = "PASSENGERS";
+    Boolean end = false;
+    Boolean[][] Board = new Boolean[7][40];
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
