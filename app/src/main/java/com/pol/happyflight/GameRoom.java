@@ -60,7 +60,7 @@ public class GameRoom extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 maxJug = Integer.parseInt(document.get("Max jug").toString());
-                                minJug = Integer.parseInt(document.get("Max jug").toString());
+                                minJug = Integer.parseInt(document.get("Min jug").toString());
                                 numJug = Integer.parseInt(document.get("Num jug").toString());
 
                                 if(numJug<maxJug){
