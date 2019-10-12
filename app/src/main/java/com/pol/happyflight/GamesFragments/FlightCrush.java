@@ -59,10 +59,11 @@ public class FlightCrush  extends Fragment {
                 });
         if (gameHost)initializeGame(gameStat);
         return inflater.inflate(R.layout.flight_crush, container, false);
-
     }
 
     private void initializeGame(CollectionReference gameStat) {
         Map<String, Object> data1 = new HashMap<>();
     }
+
+    
 }
