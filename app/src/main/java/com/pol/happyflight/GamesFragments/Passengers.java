@@ -20,6 +20,7 @@ public class Passengers  extends Fragment {
     boolean[][] Board = new boolean[7][40];
     int speed = 500, x = 1, y = 1;
     boolean collision = false;
+    String TAG = "PASSENGERS";
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
