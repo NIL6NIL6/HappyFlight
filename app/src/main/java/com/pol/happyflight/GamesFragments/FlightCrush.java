@@ -62,7 +62,7 @@ public class FlightCrush  extends Fragment {
                         }
                     }
                 });
-        gameStat.document("Status").addSnapshotListener(new EventListener<DocumentSnapshot>() {
+        /*gameStat.document("Status").addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot snapshot,
                                 @Nullable FirebaseFirestoreException e) {
@@ -80,7 +80,7 @@ public class FlightCrush  extends Fragment {
                     Log.d(TAG, "Current data: null");
                 }
             }
-        });
+        });*/
         if (gameHost)initializeGame(gameStat);
         return inflater.inflate(R.layout.flight_crush, container, false);
     }
