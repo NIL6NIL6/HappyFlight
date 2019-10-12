@@ -30,6 +30,7 @@ import java.util.Map;
 public class FlightCrush  extends Fragment {
     FirebaseFirestore db;
     String TAG = "FLIGHTCRASH";
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -37,26 +38,9 @@ public class FlightCrush  extends Fragment {
         WifiManager manager = (WifiManager) getActivity().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         WifiInfo info = manager.getConnectionInfo();
         String address = info.getMacAddress();
-        boolean host = false;
-        db.collection("Flight_crash").document(getActivity().getIntent().getExtras().getString("id"))
-                .collection("GameStat").document("Users")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            //Posar aqui check de host
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                String name = document.get("name").toString();
-                                Button but = new Button(FlightCrush.this);
-                                but.setText(name);
-                            }
-                        } else {
-                            Log.w(TAG, "Error getting documents.", task.getException());
-                        }
-                    }
-                });
+
 
         return inflater.inflate(R.layout.flight_crush, container, false);
 
+    }
 }
