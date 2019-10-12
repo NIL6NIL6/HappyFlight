@@ -243,7 +243,7 @@ public class FlightCrush  extends Fragment {
         return positionsAvailability;
     }
 
-    private HashMap<String, Pair<Float, Float>> theAlgorithm(Map<String, Integer> currents, Map<String, Integer> destinations) {
+    /*private HashMap<String, Pair<Float, Float>> theAlgorithm(Map<String, Integer> currents, Map<String, Integer> destinations) {
         HashMap<String, Pair<Float, Float>> deceased = new HashMap<String, Pair<Float, Float>>();
         HashMap<String, Pair<Float, Float>> lines;
 
@@ -259,5 +259,5 @@ public class FlightCrush  extends Fragment {
         }
 
         return deceased;
-    }
+    }*/
 }
