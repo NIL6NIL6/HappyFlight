@@ -1,6 +1,6 @@
 package com.pol.happyflight.Classes;
 
-public static class Constants {
+public class Constants {
     private static int maxJug = 4;
     private static int minJug = 2;
 
