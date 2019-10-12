@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "104816940162",
+    "firebase_url": "https://upbeat-agent-200719.firebaseio.com",
+    "project_id": "upbeat-agent-200719",
+    "storage_bucket": "upbeat-agent-200719.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:104816940162:android:5437d5acaab846924cd09b",
+        "android_client_info": {
+          "package_name": "com.pol.happyflight"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "104816940162-7ulo0bphpnn6tcmauiij82m3tle591mt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pol.happyflight",
+            "certificate_hash": "61c5078fc6d0861c021564ed87e92a983fca2256"
+          }
+        },
+        {
+          "client_id": "104816940162-6gk3sr0kgqb1483jn573kp4gcu6oivpg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAM-zFm-30cK5609XA-oqLdArdpL-FBabw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "104816940162-6gk3sr0kgqb1483jn573kp4gcu6oivpg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
