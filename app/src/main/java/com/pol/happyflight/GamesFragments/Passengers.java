@@ -65,6 +65,8 @@ public class Passengers  extends Fragment {
             if(collision) {
                 break;
             }
+            else pieceEnter(piece);
+
             try {
                 Thread.sleep(speed);
             } catch (InterruptedException e) {
