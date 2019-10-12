@@ -6,6 +6,7 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,7 +19,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.pol.happyflight.R;
@@ -33,11 +36,8 @@ import java.util.Random;
 public class FlightCrush  extends Fragment {
     FirebaseFirestore db;
     String TAG = "FLIGHTCRASH";
-<<<<<<< HEAD
-=======
     boolean gameHost;
     List<Object> users;
->>>>>>> ac5ea556f65e3bac1bbce553e8f79c427c1fed69
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -45,11 +45,6 @@ public class FlightCrush  extends Fragment {
         db = FirebaseFirestore.getInstance();
         WifiManager manager = (WifiManager) getActivity().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         WifiInfo info = manager.getConnectionInfo();
-<<<<<<< HEAD
-        String address = info.getMacAddress();
-
-
-=======
         final String address = info.getMacAddress();
         gameHost = false;
         CollectionReference gameStat = db.collection("Flight_crash")
@@ -61,19 +56,35 @@ public class FlightCrush  extends Fragment {
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful()) {
                             DocumentSnapshot document = task.getResult();
-                            gameHost = Arrays.asList(document.get("Users")).get(0).toString().equals(address);
+                            gameHost = Arrays.asList(document.get("UserID")).get(0).toString().equals(address);
                         } else {
                             Log.w(TAG, "Error getting documents.", task.getException());
                         }
                     }
                 });
+        gameStat.document("Status").addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot snapshot,
+                                @Nullable FirebaseFirestoreException e) {
+                if (e != null) {
+                    Log.w(TAG, "Listen failed.", e);
+                    return;
+                }
+
+                if (snapshot != null && snapshot.exists()) {
+                    Log.d(TAG, "Current data: " + snapshot.getData());
+                    txtX.setText(""+snapshot.get("x"));
+                    txtY.setText(""+snapshot.get("y"));
+
+                } else {
+                    Log.d(TAG, "Current data: null");
+                }
+            }
+        });
         if (gameHost)initializeGame(gameStat);
->>>>>>> ac5ea556f65e3bac1bbce553e8f79c427c1fed69
         return inflater.inflate(R.layout.flight_crush, container, false);
     }
 
-<<<<<<< HEAD
-=======
     private void initializeGame(CollectionReference gameStat) {
         Map<String, Object> data = new HashMap<>();
         gameStat.document("Users")
@@ -117,6 +128,5 @@ public class FlightCrush  extends Fragment {
             current.put(user.toString(),num);
         }
         data.put("Current",current);
->>>>>>> ac5ea556f65e3bac1bbce553e8f79c427c1fed69
     }
 }
