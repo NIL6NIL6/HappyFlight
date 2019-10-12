@@ -33,6 +33,7 @@ public class FlightCrush  extends Fragment {
     FirebaseFirestore db;
     String TAG = "FLIGHTCRASH";
     boolean gameHost;
+    List<Object> users;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -59,10 +60,46 @@ public class FlightCrush  extends Fragment {
                 });
         if (gameHost)initializeGame(gameStat);
         return inflater.inflate(R.layout.flight_crush, container, false);
-
     }
 
     private void initializeGame(CollectionReference gameStat) {
-        Map<String, Object> data1 = new HashMap<>();
+        Map<String, Object> data = new HashMap<>();
+        gameStat.document("Users")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()) {
+                            DocumentSnapshot document = task.getResult();
+                            users = Arrays.asList(document.get("Users"));
+                        } else {
+                            Log.w(TAG, "Error getting documents.", task.getException());
+                        }
+                    }
+                });
+        //Hardcoded quantity of buttons
+        int nBut = 10;
+        HashMap<String,ArrayList<Boolean>> visited = new HashMap<>();
+        HashMap<String,Boolean> Deceased = new HashMap<>();
+        for (Object user : users){
+            ArrayList<Boolean> aux = new ArrayList<>();
+            for (int i = 0; i<nBut; ++i){
+                aux.add(false);
+            }
+            visited.put(user.toString(),aux);
+            Deceased.put(user.toString(),false);
+        }
+        data.put("Destination",new HashMap<String,Integer>());
+        data.put("UserVisited",visited);
+        data.put("Deceased",Deceased);
+        HashMap<String,Integer> current = new HashMap<>();
+        ArrayList<Boolean> used = new ArrayList<>();
+        for (int i = 0; i<nBut; ++i){
+            used.add(false);
+        }
+        for (Object user : users){
+
+        }
+        data.put("Current",current);
     }
 }
