@@ -10,6 +10,8 @@ import com.pol.happyflight.GamesFragments.FlightCrush;
 import com.pol.happyflight.GamesFragments.Passengers;
 import com.pol.happyflight.GamesFragments.Trivia;
 
+import static java.lang.Thread.sleep;
+
 public class GameRoom extends AppCompatActivity {
 
     @Override
@@ -20,12 +22,14 @@ public class GameRoom extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         String name = extras.getString("name");
         loadGame(name);
-
     }
+
+
     private void loadGame(String name){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        Fragment fragment = new FlightCrush();
+        Fragment fragment = null;
+
         switch(name){
             case "Tetris":
                 fragment = new Passengers();
@@ -38,6 +42,7 @@ public class GameRoom extends AppCompatActivity {
 
                 break;
         }
+
         fragmentTransaction.add(R.id.fragmentLayout, fragment);
         fragmentTransaction.commit();
     }
