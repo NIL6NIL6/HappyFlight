@@ -1,6 +1,7 @@
 package com.pol.happyflight.GamesFragments;
 
 import android.os.Bundle;
+import android.provider.SyncStateContract;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -15,6 +16,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.pol.happyflight.Classes.Constants;
 import com.pol.happyflight.Classes.Room;
 import com.pol.happyflight.R;
 
@@ -70,8 +72,8 @@ public class Trivia  extends Fragment {
                             }
                             Map<String, Object> roomFC = new HashMap<>();
                             roomFC.put("En curs",false);
-                            roomFC.put("Max jug",4);
-                            roomFC.put("Min jug",2);
+                            roomFC.put("Max jug",Constants.getMaxJug());
+                            roomFC.put("Min jug",Constants.getMinJug());
                             roomFC.put("Num jug",1);
 
                             db.collection(col).document()

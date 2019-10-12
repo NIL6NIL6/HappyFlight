@@ -71,8 +71,8 @@ public class Passengers  extends Fragment {
                             }
                             Map<String, Object> roomFC = new HashMap<>();
                             roomFC.put("En curs",false);
-                            roomFC.put("Max jug",4);
-                            roomFC.put("Min jug",2);
+                            roomFC.put("Max jug",Constants.getMaxJug());
+                            roomFC.put("Min jug",Constants.getMinJug());
                             roomFC.put("Num jug",1);
 
                             db.collection(col).document()
