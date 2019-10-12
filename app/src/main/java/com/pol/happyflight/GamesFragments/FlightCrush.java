@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,7 @@ import com.pol.happyflight.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -181,5 +183,23 @@ public class FlightCrush  extends Fragment {
         //FIREBASE CODE HERE
 
         return positionsAvailability;
+    }
+
+    private HashMap<String, Pair<Float, Float>> theAlgorithm(Map<String, Integer> currents, Map<String, Integer> destinations) {
+        HashMap<String, Pair<Float, Float>> deceased = new HashMap<String, Pair<Float, Float>>();
+        HashMap<String, Pair<Float, Float>> lines;
+
+        Iterator it = currents.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry pair = (Map.Entry) it.next();
+
+            String d1 = "destination".concat(Integer.toString(currents.get(pair.getKey())));
+            int resID = getResources().getIdentifier(buttonID, "id", "com.pol.happyflight");
+            Button b1 = (Button) view.findViewById(d1);
+
+            Float slope;
+        }
+
+        return deceased;
     }
 }
