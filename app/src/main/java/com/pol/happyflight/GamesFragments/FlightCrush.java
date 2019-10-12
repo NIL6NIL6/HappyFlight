@@ -28,6 +28,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 public class FlightCrush  extends Fragment {
     FirebaseFirestore db;
@@ -97,8 +98,12 @@ public class FlightCrush  extends Fragment {
         for (int i = 0; i<nBut; ++i){
             used.add(false);
         }
+        Random random = new Random();
+        int num;
         for (Object user : users){
-
+            while(used.get((num = random.nextInt(nBut)))){}
+            used.set(num,true);
+            current.put(user.toString(),num);
         }
         data.put("Current",current);
     }
