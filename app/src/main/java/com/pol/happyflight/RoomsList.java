@@ -29,9 +29,7 @@ public class RoomsList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rooms_list);
         gamesList = findViewById(R.id.gamesList);
-        WifiManager manager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-        WifiInfo info = manager.getConnectionInfo();
-        String address = info.getMacAddress();
+
 
     }
     @Override
@@ -47,8 +45,10 @@ public class RoomsList extends AppCompatActivity {
                             gamesList.removeAllViews();
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 String name = document.get("name").toString();
+                                String id = document.get("id").toString();
                                 Button but = new Button(RoomsList.this);
                                 but.setText(name);
+                                but.setTag(id);
                                 but.setOnClickListener(gameClickEvent);
                                 gamesList.addView(but);
                             }
@@ -62,12 +62,16 @@ public class RoomsList extends AppCompatActivity {
     View.OnClickListener gameClickEvent = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            WifiManager manager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+            WifiInfo info = manager.getConnectionInfo();
+            String mac = info.getMacAddress();
             Intent intent = new Intent(RoomsList.this, GameRoom.class);
-
             Button b = (Button) v;
             String name = b.getText().toString();
+            String id = b.getTag().toString();
             intent.putExtra("name", name);
-
+            intent.putExtra("id", id);
+            intent.putExtra("mac", mac);
             startActivity(intent);
         }
     };
