@@ -59,9 +59,8 @@ public class FlightCrush  extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.flight_crush, container, false);
         db = FirebaseFirestore.getInstance();
-        WifiManager manager = (WifiManager) getActivity().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-        WifiInfo info = manager.getConnectionInfo();
-        address = info.getMacAddress();
+
+        address = GameRoom.getMacAddr();
         final CollectionReference gameStat = db.collection("Flight_crash")
                 .document(GameRoom.roomId).collection("GameStat");
         gameStat.document("Users")
