@@ -152,6 +152,7 @@ public class FlightCrush  extends Fragment {
 
     private void initializeGame(final CollectionReference gameStat) {
         gameHost = true;
+        Log.w(TAG, "Ini G");
         gameStat.document("Users")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -206,6 +207,19 @@ public class FlightCrush  extends Fragment {
                             background.addView(a);
                             plane = a;
                             buttons[idVisited].setAlpha(128);
+                            for (int i = 0; i < users.size(); i++) {
+                                String userID = (String) users.get(i);
+                                if (address != userID) {
+                                    ImageView planeImg = new ImageView(view.getContext());
+                                    layoutParams = new LinearLayout.LayoutParams(150,150);
+                                    planeImg.setLayoutParams(layoutParams);
+                                    planeImg.setImageResource(R.drawable.competitor_plane);
+                                    background = view.findViewById(R.id.map);
+                                    planeImg.setTranslationY(buttons[current.get(userID)].getTop() + 25);
+                                    planeImg.setTranslationX(buttons[current.get(userID)].getLeft() + 25);
+                                    background.addView(planeImg);
+                                }
+                            }
 
                         } else {
                             Log.w(TAG, "Error getting documents.", task.getException());
