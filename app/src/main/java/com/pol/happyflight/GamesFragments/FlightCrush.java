@@ -1,6 +1,9 @@
 package com.pol.happyflight.GamesFragments;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.media.Image;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
@@ -8,15 +11,16 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -33,7 +37,6 @@ import com.google.firebase.firestore.SetOptions;
 import com.pol.happyflight.GameRoom;
 import com.pol.happyflight.R;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -49,6 +52,8 @@ public class FlightCrush  extends Fragment {
     List<Object> users;
     View view;
     String address;
+    ImageView[] buttons;
+    ImageView plane;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -76,7 +81,7 @@ public class FlightCrush  extends Fragment {
                         }
                     }
                 });
-        defineButtonClicks(view);
+       //
         final DocumentReference docRef = gameStat.document("Status");
         docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @RequiresApi(api = Build.VERSION_CODES.N)
@@ -188,6 +193,21 @@ public class FlightCrush  extends Fragment {
                             data.put("Current",current);
                             data.put("Ready",true);
                             placeInfo(gameStat,data);
+                            defineButtonClicks(view);
+
+                            /*Plane init stuff*/
+                            int idVisited = current.get("02:00:00:00:00:00");
+                            ImageView a = new ImageView(view.getContext());
+                            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(150, 150);
+                            a.setLayoutParams(layoutParams);
+                            a.setImageResource(R.drawable.host_plane);
+                            ConstraintLayout background = view.findViewById(R.id.map);
+                            a.setTranslationY(buttons[idVisited].getTop()+25);
+                            a.setTranslationX(buttons[idVisited].getLeft()+25);
+                            background.addView(a);
+                            plane = a;
+                            buttons[idVisited].setAlpha(128);
+
                         } else {
                             Log.w(TAG, "Error getting documents.", task.getException());
                         }
@@ -214,11 +234,12 @@ public class FlightCrush  extends Fragment {
     }
 
     private void defineButtonClicks(View v) {
+        buttons = new ImageView[10];
         for (int i = 0; i < 10; i++) {
             String buttonID = "destination".concat(Integer.toString(i+1));
             int resID = getResources().getIdentifier(buttonID, "id", "com.pol.happyflight");
             Log.w(TAG, resID + "");
-            ImageButton button = (ImageButton)v.findViewById(resID);
+            ImageButton button = v.findViewById(resID);
             final int idNum = i;
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -226,10 +247,14 @@ public class FlightCrush  extends Fragment {
                     onButtonClick(view, idNum);
                 }
             });
+
+            buttons[i] = button;
         }
+
     }
 
     private void onButtonClick(final View view, final int i) {
+
         db.collection("Flight_crash")
                 .document(GameRoom.roomId).collection("GameStat").document("Status")
                 .get()
@@ -238,7 +263,10 @@ public class FlightCrush  extends Fragment {
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful()) {
                             DocumentSnapshot document = task.getResult();
-                            if (!(((HashMap<String,ArrayList<Boolean>>) document.get("UserVisited")).get(address)).get(i)) goToPosition(i);
+                            if (!(((HashMap<String,ArrayList<Boolean>>) document.get("UserVisited")).get(address)).get(i)) {
+                                goToPosition(i);
+                                buttons[i].setAlpha(128);
+                            }
                             else incorrectPosition(view);
                         }
                     }
@@ -250,7 +278,14 @@ public class FlightCrush  extends Fragment {
     }
 
     private void goToPosition(final int pos) {
-        Log.w(TAG,"Change Pos " + pos);
+        ObjectAnimator animX = ObjectAnimator.ofFloat(plane, "x", buttons[pos].getLeft()+25);
+        ObjectAnimator animY = ObjectAnimator.ofFloat(plane, "y", buttons[pos].getTop()+25);
+        AnimatorSet animSetXY = new AnimatorSet();
+        animSetXY.playTogether(animX, animY);
+        animSetXY.setDuration(500);
+        animSetXY.start();
+
+
         final DocumentReference docRef =
                 db.collection("Flight_crash")
                         .document(GameRoom.roomId).collection("GameStat").document("Status");
