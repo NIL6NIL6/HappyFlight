@@ -196,7 +196,7 @@ public class FlightCrush  extends Fragment {
                             defineButtonClicks(view);
 
                             /*Plane init stuff*/
-                            int idVisited = current.get("02:00:00:00:00:00");
+                            int idVisited = current.get(address);
                             ImageView a = new ImageView(view.getContext());
                             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(150, 150);
                             a.setLayoutParams(layoutParams);
