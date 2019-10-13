@@ -94,6 +94,7 @@ public class FlightCrush  extends Fragment {
 
                 if (snapshot != null && snapshot.exists()) {
                     Log.d(TAG, "Current data: " + snapshot.getData());
+                    if (snapshot.get("Deceased") == null) return;
                     if ((Boolean) ((Map)snapshot.get("Deceased")).get(address)){
                         if (!gameHost) getActivity().onBackPressed();
                     }
@@ -226,7 +227,7 @@ public class FlightCrush  extends Fragment {
                         }
                     }
                 });
-
+        Toast.makeText(view.getContext(), "", Toast.LENGTH_SHORT).show();
     }
 
     private void placeInfo(CollectionReference gameStat, Map<String, Object> data) {
