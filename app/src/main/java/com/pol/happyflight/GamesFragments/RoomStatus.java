@@ -16,14 +16,18 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.pol.happyflight.GameRoom;
 import com.pol.happyflight.R;
 
@@ -65,11 +69,29 @@ public class RoomStatus extends Fragment {
        List<String> arr = new ArrayList() ;
         arr.add(GameRoom.mac);
 
-
+        /*
         db.collection(GameRoom.id).document(GameRoom.roomId).collection("GameStat").document("Users")
                 .update("UserID", arr);
-
-
+*/
+        db.collection(GameRoom.id).document(GameRoom.roomId).collection("GameStat")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d(TAG, document.getId() + " => " + document.getData());
+                                List<String> arr = (List<String>) document.get("UserID");
+                                if(arr==null){arr = new ArrayList<>(); }
+                                arr.add(GameRoom.mac);
+                                db.collection(GameRoom.id).document(GameRoom.roomId).collection("GameStat").document("Users")
+                                        .update("UserID", arr);
+                            }
+                        } else {
+                            Log.w(TAG, "Error getting documents.", task.getException());
+                        }
+                    }
+                });
 
     }
 
@@ -106,6 +128,8 @@ public class RoomStatus extends Fragment {
     }
     private void loadGame(){
         Log.d(TAG, GameRoom.id);
+        db.collection(GameRoom.id).document(GameRoom.roomId)
+                .update("En curs", true);
         switch(GameRoom.id){
             case "Flight_crash":
                 getFragmentManager().beginTransaction().replace(R.id.fragmentLayout, new FlightCrush()).commit();
