@@ -298,7 +298,7 @@ public class FlightCrush  extends Fragment {
         for (int i = 0; i < sortedList.size(); i++) {
             if (! isPlaneDestroyed.get(sortedList.get(i).first.second) &&
                 ! isPlaneDestroyed.get(sortedList.get(i).first.first)) {
-                
+
                 isPlaneDestroyed.set(sortedList.get(i).first.first, true);
                 destroyed.put(sortedList.get(i).first.first, sortedList.get(i).second);
             }
