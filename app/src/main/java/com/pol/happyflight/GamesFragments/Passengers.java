@@ -25,6 +25,7 @@ public class Passengers  extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+
         View view = inflater.inflate(R.layout.passengers, container, false);
 
         rotateB = view.findViewById(R.id.rotateButton);
@@ -61,8 +62,9 @@ public class Passengers  extends Fragment {
 
         while(!end) {
             boolean piece[][] = pieceGenerator();
-
+Log.d("TESTING","HELP PLZ!");
             if(collision) {
+                for(int i = 0; i < Board[0].length; ++i) Board[3][i] = false;
                 break;
             }
             else pieceEnter(piece);
@@ -92,6 +94,8 @@ public class Passengers  extends Fragment {
             if(collision) break;
 
         }
+
+        Log.d("TESTING","HELP +++");
         return view;
     }
 
@@ -155,8 +159,11 @@ public class Passengers  extends Fragment {
                 Board[i][j] = pi[i][j];
             }
         }
+        //imageshow(pi);----------------------------------------------------------
         return true;
     }
+
+
 
     public boolean nextMoveAvailable(boolean[][] pi){
         for(int i = x-(pi.length)/2; i < x+(pi.length)/2; ++i){
