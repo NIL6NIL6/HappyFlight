@@ -56,6 +56,8 @@ public class FlightCrush  extends Fragment {
     ImageView plane;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.flight_crush, container, false);
         db = FirebaseFirestore.getInstance();
@@ -81,6 +83,7 @@ public class FlightCrush  extends Fragment {
                     }
                 });
        //
+        Log.w(TAG, "listener");
         final DocumentReference docRef = gameStat.document("Status");
         docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @RequiresApi(api = Build.VERSION_CODES.N)
@@ -147,6 +150,7 @@ public class FlightCrush  extends Fragment {
                 }
             }
         });
+        Log.w(TAG, "listenerEND");
         return view;
     }
 
@@ -230,7 +234,7 @@ public class FlightCrush  extends Fragment {
     }
 
     private void placeInfo(CollectionReference gameStat, Map<String, Object> data) {
-        gameStat.document("Status")
+        gameStat.document("Statu    s")
                 .set(data)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
