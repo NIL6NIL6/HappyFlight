@@ -208,7 +208,17 @@ public class FlightCrush  extends Fragment {
                             buttons[idVisited].setAlpha(128);
 
                             for (int i = 0; i < users.size(); i++) {
-
+                                String userID = (String) users.get(i);
+                                if (address != userID) {
+                                    ImageView planeImg = new ImageView(view.getContext());
+                                    layoutParams = new LinearLayout.LayoutParams(150,150);
+                                    planeImg.setLayoutParams(layoutParams);
+                                    planeImg.setImageResource(R.drawable.competitor_plane);
+                                    background = view.findViewById(R.id.map);
+                                    planeImg.setTranslationY(buttons[current.get(userID)].getTop() + 25);
+                                    planeImg.setTranslationX(buttons[current.get(userID)].getLeft() + 25);
+                                    background.addView(planeImg);
+                                }
                             }
 
                         } else {
