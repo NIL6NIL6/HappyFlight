@@ -56,8 +56,6 @@ public class FlightCrush  extends Fragment {
     ImageView plane;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.flight_crush, container, false);
         db = FirebaseFirestore.getInstance();
@@ -83,7 +81,6 @@ public class FlightCrush  extends Fragment {
                     }
                 });
        //
-        Log.w(TAG, "listener");
         final DocumentReference docRef = gameStat.document("Status");
         docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @RequiresApi(api = Build.VERSION_CODES.N)
@@ -150,7 +147,6 @@ public class FlightCrush  extends Fragment {
                 }
             }
         });
-        Log.w(TAG, "listenerEND");
         return view;
     }
 
@@ -199,7 +195,7 @@ public class FlightCrush  extends Fragment {
                             defineButtonClicks(view);
 
                             /*Plane init stuff*/
-                            int idVisited = current.get(address);
+                            int idVisited = current.get(GameRoom.getMacAddr());
                             ImageView a = new ImageView(view.getContext());
                             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(150, 150);
                             a.setLayoutParams(layoutParams);
@@ -211,20 +207,6 @@ public class FlightCrush  extends Fragment {
                             plane = a;
                             buttons[idVisited].setAlpha(128);
 
-                            for (int i = 0; i < users.size(); i++) {
-                                String userID = (String) users.get(i);
-                                if (address != userID) {
-                                    ImageView planeImg = new ImageView(view.getContext());
-                                    layoutParams = new LinearLayout.LayoutParams(150,150);
-                                    planeImg.setLayoutParams(layoutParams);
-                                    planeImg.setImageResource(R.drawable.competitor_plane);
-                                    background = view.findViewById(R.id.map);
-                                    planeImg.setTranslationY(buttons[current.get(userID)].getTop() + 25);
-                                    planeImg.setTranslationX(buttons[current.get(userID)].getLeft() + 25);
-                                    background.addView(planeImg);
-                                }
-                            }
-
                         } else {
                             Log.w(TAG, "Error getting documents.", task.getException());
                         }
@@ -234,7 +216,7 @@ public class FlightCrush  extends Fragment {
     }
 
     private void placeInfo(CollectionReference gameStat, Map<String, Object> data) {
-        gameStat.document("Statu    s")
+        gameStat.document("Status")
                 .set(data)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
