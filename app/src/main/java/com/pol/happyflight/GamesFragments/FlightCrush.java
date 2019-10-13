@@ -469,6 +469,12 @@ public class FlightCrush  extends Fragment {
         while (it.hasNext()) {
             Map.Entry pair = (Map.Entry) it.next();
 
+            /*
+            String d = "destination".concat(Integer.toString(currents.get(pair.getKey())));
+            int resID = getResources().getIdentifier(d, "id", "com.pol.happyflight");
+            Button b = (Button) view.findViewById(resID);
+            */
+
             //Current position's button (Need to get its position)
             String buttonID1 = "destination".concat(Integer.toString(currents.get(pair.getKey())));
             int resID1 = getResources().getIdentifier(buttonID1, "id", "com.pol.happyflight");
