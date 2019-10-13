@@ -82,13 +82,14 @@ public class RoomStatus extends Fragment {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Log.d(TAG, document.getId() + " => " + document.getData());
                                 List<String> arr = (List<String>) document.get("UserID");
-                                List<String> status = new ArrayList();
+                                Map<String, String> status = new HashMap    <String, String>() {
+                                };
                                 if(arr==null){arr = new ArrayList<>(); }
                                 arr.add(GameRoom.mac);
                                 db.collection(GameRoom.id).document(GameRoom.roomId).collection("GameStat").document("Users")
                                         .update("UserID", arr);
-                                db.collection(GameRoom.id).document(GameRoom.roomId).collection("GameStat").document("Users")
-                                        .update("Status", status);
+                                db.collection(GameRoom.id).document(GameRoom.roomId).collection("GameStat").document("Status")
+                                        .set(status);
                             }
                         } else {
                             Log.w(TAG, "Error getting documents.", task.getException());
