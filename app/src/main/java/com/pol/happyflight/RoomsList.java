@@ -86,9 +86,8 @@ public class RoomsList extends AppCompatActivity {
                 });
     }
     public static void enterRoom(String name, String id){
-        WifiManager manager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
-        WifiInfo info = manager.getConnectionInfo();
-        String mac = info.getMacAddress();
+
+        String mac = GameRoom.getMacAddr();
         Intent intent = new Intent(context, GameRoom.class);
         intent.putExtra("name", name);
         intent.putExtra("id", id);
