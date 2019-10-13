@@ -57,6 +57,7 @@ public class FlightCrush  extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         view = inflater.inflate(R.layout.flight_crush, container, false);
         db = FirebaseFirestore.getInstance();
 
@@ -79,8 +80,8 @@ public class FlightCrush  extends Fragment {
                             Log.w(TAG, "Error getting documents.", task.getException());
                         }
                     }
+
                 });
-       //
         final DocumentReference docRef = gameStat.document("Status");
         docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @RequiresApi(api = Build.VERSION_CODES.N)
@@ -94,6 +95,7 @@ public class FlightCrush  extends Fragment {
 
                 if (snapshot != null && snapshot.exists()) {
                     Log.d(TAG, "Current data: " + snapshot.getData());
+                    if (snapshot.get("Deceased") == null) return;
                     if ((Boolean) ((Map)snapshot.get("Deceased")).get(address)){
                         if (!gameHost) getActivity().onBackPressed();
                     }
@@ -147,11 +149,14 @@ public class FlightCrush  extends Fragment {
                 }
             }
         });
+
+        Log.d(TAG, "3");
         return view;
     }
 
     private void initializeGame(final CollectionReference gameStat) {
         gameHost = true;
+        Log.w(TAG, "Ini G");
         gameStat.document("Users")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -206,13 +211,26 @@ public class FlightCrush  extends Fragment {
                             background.addView(a);
                             plane = a;
                             buttons[idVisited].setAlpha(128);
+                            for (int i = 0; i < users.size(); i++) {
+                                String userID = (String) users.get(i);
+                                if (address != userID) {
+                                    ImageView planeImg = new ImageView(view.getContext());
+                                    layoutParams = new LinearLayout.LayoutParams(150,150);
+                                    planeImg.setLayoutParams(layoutParams);
+                                    planeImg.setImageResource(R.drawable.competitor_plane);
+                                    background = view.findViewById(R.id.map);
+                                    planeImg.setTranslationY(buttons[current.get(userID)].getTop() + 25);
+                                    planeImg.setTranslationX(buttons[current.get(userID)].getLeft() + 25);
+                                    background.addView(planeImg);
+                                }
+                            }
 
                         } else {
                             Log.w(TAG, "Error getting documents.", task.getException());
                         }
                     }
                 });
-
+        Toast.makeText(view.getContext(), "", Toast.LENGTH_SHORT).show();
     }
 
     private void placeInfo(CollectionReference gameStat, Map<String, Object> data) {

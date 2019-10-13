@@ -47,6 +47,7 @@ public class RoomStatus extends Fragment {
         init();
         incrementUser();
         addUser();
+        checkForUpdates();
         return view;
     }
     private void init(){
@@ -60,7 +61,7 @@ public class RoomStatus extends Fragment {
 
         db = FirebaseFirestore.getInstance();
     }
-    private void updateCounters(){
+    private void    updateCounters(){
         maxJugTxt.setText(""+GameRoom.maxJug);
         minJugTxt.setText(""+GameRoom.minJug);
         NumJugTxt.setText(""+(GameRoom.numJug));
@@ -101,6 +102,7 @@ public class RoomStatus extends Fragment {
 
     private void checkForUpdates(){
         final DocumentReference docRef = db.collection(GameRoom.id).document(GameRoom.roomId);
+
         docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot snapshot,
@@ -118,6 +120,7 @@ public class RoomStatus extends Fragment {
 
                     if(GameRoom.numJug>=GameRoom.minJug){
                         Log.d(TAG,"rtu");
+
                         loadGame();
 
                     }else{
@@ -130,21 +133,30 @@ public class RoomStatus extends Fragment {
             }
         });
     }
-    private void loadGame(){
-        Log.d(TAG, GameRoom.id);
+    public void loadGame(){
+        final FragmentTransaction a = getFragmentManager().beginTransaction();
+        Log.d(TAG, "SUUUUUA " + GameRoom.id);
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection(GameRoom.id).document(GameRoom.roomId)
                 .update("En curs", true);
-        switch(GameRoom.id){
-            case "Flight_crash":
-                getFragmentManager().beginTransaction().replace(R.id.fragmentLayout, new FlightCrush()).commit();
-                break;
-            case "Passengers":
-                getFragmentManager().beginTransaction().replace(R.id.fragmentLayout, new Passengers()).commit();
-                break;
-            case "Trivia":
-                getFragmentManager().beginTransaction().replace(R.id.fragmentLayout, new Trivia()).commit();
-                break;
-        }
+
+            switch (GameRoom.id) {
+
+                case "Flight_crash":
+                    Log.d(TAG, "1111");
+                    a.replace(R.id.fragmentLayout, new FlightCrush());
+                    Log.d(TAG, "2222");
+                    break;
+                case "Passengers":
+                    a.replace(R.id.fragmentLayout, new Passengers());
+                    break;
+                case "Trivia":
+                    a.replace(R.id.fragmentLayout, new Trivia());
+                    break;
+            }
+        a.addToBackStack(null);
+        a.commit();
+
     }
     private void incrementUser(){
         Log.d(TAG, "Num jug1 " + GameRoom.numJug);
@@ -157,7 +169,7 @@ public class RoomStatus extends Fragment {
                     public void onSuccess(Void aVoid) {
 
                         updateCounters();
-                        checkForUpdates();
+
                         Log.w(TAG, "cool");
                     }
                 })
