@@ -196,7 +196,7 @@ public class FlightCrush  extends Fragment {
                             defineButtonClicks(view);
 
                             /*Plane init stuff*/
-                            int idVisited = current.get("02:00:00:00:00:00");
+                            int idVisited = current.get(address);
                             ImageView a = new ImageView(view.getContext());
                             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(150, 150);
                             a.setLayoutParams(layoutParams);
@@ -207,6 +207,10 @@ public class FlightCrush  extends Fragment {
                             background.addView(a);
                             plane = a;
                             buttons[idVisited].setAlpha(128);
+
+                            for (int i = 0; i < users.size(); i++) {
+
+                            }
 
                         } else {
                             Log.w(TAG, "Error getting documents.", task.getException());
