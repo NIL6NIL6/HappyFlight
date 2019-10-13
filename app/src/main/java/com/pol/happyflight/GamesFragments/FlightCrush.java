@@ -290,7 +290,8 @@ public class FlightCrush  extends Fragment {
 
             String d1 = "destination".concat(Integer.toString(currents.get(pair.getKey())));
             int resID = getResources().getIdentifier(buttonID, "id", "com.pol.happyflight");
-            Button b1 = (Button) view.findViewById(d1);
+            Button b1 = (Button) view
+                    .findViewById(d1);
 
             Float slope;
         }
